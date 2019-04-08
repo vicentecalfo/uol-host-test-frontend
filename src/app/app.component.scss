@@ -1,0 +1,14 @@
+header{
+    background: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 70%;
+    justify-content: center;
+}

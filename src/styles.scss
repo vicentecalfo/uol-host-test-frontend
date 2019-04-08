@@ -1,0 +1,101 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Hind:400,600');
+@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body{
+    margin:0;
+    font-family: 'Hind', sans-serif;
+}
+
+.section-title{
+  font-weight: normal;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 20px;
+  i{
+    margin-right: 10px;
+    font-size: 1.8rem;
+  }
+}
+
+.main-page{
+  color: #666666;
+  .main-title{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    align-items: center;
+    h2{
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Buttons */
+
+@mixin btn-solid{
+  background: #E29933;
+  color:#ffffff;
+}
+
+.btn{
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #E29933;
+  color:#ffffff;
+  cursor: pointer;
+  padding:10px 15px;
+  font-size: 1rem;
+  transition: 0.5s;
+
+  &:hover{
+    background: #C47E1C;
+  }
+}
+
+.btn.outline{
+  border: 1px solid #E29933 ;
+  background: transparent;
+  color:#E29933;
+
+  &:hover{
+    @include btn-solid;
+  }
+}
+
+.btn.full{
+  width: 100%;
+}
+
+/* Status */
+
+.status{
+  display: flex;
+  align-items: center;
+}
+
+.status i{
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.status.active i{
+  background: #49AD5B;
+}
