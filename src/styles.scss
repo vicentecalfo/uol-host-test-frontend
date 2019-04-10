@@ -37,9 +37,11 @@ body{
     display: grid;
     grid-template-columns: 4fr 1fr;
     align-items: center;
+    margin-bottom:20px;
     h2{
       font-size: 1.3rem;
       font-weight: 600;
+      margin:0;
     }
   }
 }
@@ -81,11 +83,23 @@ body{
   width: 100%;
 }
 
+.btn-group{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+button:disabled{
+  opacity: 0.7;
+  cursor:not-allowed;
+}
+
 /* Status */
 
 .status{
   display: flex;
   align-items: center;
+  font-size: 0.8rem;
 }
 
 .status i{
@@ -98,4 +112,95 @@ body{
 
 .status.active i{
   background: #49AD5B;
+}
+
+.status.waiting i{
+  background: #D2A710;
+}
+
+.status.inactive i{
+  background: #D6323F;
+}
+
+.status.disabled i{
+  background: #D2D2D2;
+}
+
+/* Loading */
+.loading{
+  display: grid;
+  padding:50px;
+  background: #ededed;
+  text-align: center;
+}
+
+/* Forms */
+
+.form-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, auto);
+  row-gap: 20px;
+}
+
+.form-field input{
+  border: 1px solid #cccccc;
+  padding:15px 20px;
+  border-radius:4px;
+  width: 100%;
+}
+
+.form-field select{
+  border: 1px solid #cccccc;
+  padding:15px 20px;
+  border-radius:4px;
+  background: transparent;
+  color: #666666;
+  width: 100%;
+  cursor: pointer;
+}
+
+.form-field.custom-select {
+  select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+
+.form-field.custom-select {
+  position: relative;
+}
+
+.form-field.custom-select:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: '\f078';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right:20px;
+  pointer-events: none;
+}
+
+/* Messages */
+
+.message{
+  position: absolute;
+  top:40px;
+  right:40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  i{
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+}
+
+.message.success{
+  background: #49AD5B;
+  padding:20px;
+  color:#fff;
 }

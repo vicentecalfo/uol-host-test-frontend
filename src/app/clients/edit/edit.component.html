@@ -1,0 +1,61 @@
+<h1 class="section-title">
+  <i class="far fa-user"></i>Painel de clientes
+</h1>
+<div class="main-page">
+  <div class="main-title">
+    <div>
+      <h2>Novo usuário</h2>
+      <span>Informe os campos a seguir para criar um novo usuário:</span>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="message success"
+         *ngIf="message"
+         (click)="message = null">
+      <i class="far fa-check-circle"></i> {{message}}
+    </div>
+    <form class="form-grid grid"
+          *ngIf="form"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()">
+      <div class="form-field">
+        <input type="text"
+               placeholder="Nome"
+               formControlName="name" />
+      </div>
+      <div class="form-field">
+        <input type="email"
+               placeholder="E-mail"
+               formControlName="email" />
+      </div>
+      <div class="form-field">
+        <input type="CPF"
+               placeholder="CPF"
+               formControlName="cpf" />
+      </div>
+      <div class="form-field">
+        <input type="text"
+               placeholder="Telefone"
+               formControlName="tel" />
+      </div>
+      <div class="form-field custom-select">
+        <select formControlName="status">
+          <option value=""
+                  selected>Status</option>
+          <option *ngFor="let item of status"
+                  value="{{item}}">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+      <div class="btn-group">
+        <button class="btn"
+                type="submit"
+                [disabled]="!form.valid">Salvar dados</button>
+        <button class="btn outline"
+                [routerLink]="['/painel-de-clientes']"
+                type="button">Voltar</button>
+      </div>
+    </form>
+  </div>
+</div>

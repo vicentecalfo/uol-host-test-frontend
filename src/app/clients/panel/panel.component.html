@@ -5,32 +5,46 @@
   <div class="main-title">
     <div>
       <h2>Listagem de usuários</h2>
-      <p>Escolha um cliente para visualizar os detalhes</p>
+      <span>Escolha um cliente para visualizar os detalhes</span>
     </div>
-    <button class="btn">Novo cliente</button>
+    <button class="btn"
+            [routerLink]="['/criar-cliente']">Novo cliente</button>
   </div>
-  <div class="main-content">
+  <div class="main-content"
+       *ngIf="clients; else loading">
     <ul class="client-list">
-      <li>
+      <li *ngFor="let client of clients | keyvalue">
         <div class="col">
           <div>
-            <strong>John Doe</strong><br />
-            <span>john_doe@test.com</span>
+            <strong>{{ client.value.name }}</strong><br />
+            <span>{{ client.value.email }}</span>
           </div>
         </div>
         <div class="col">
           <div>
-            <strong>123.456.789-00</strong><br />
-            <span>(11) 9998-8745</span>
+            <strong>{{ client.value.cpf }}</strong><br />
+            <span>{{ client.value.tel }}</span>
           </div>
         </div>
         <div class="col">
-          <div class="status active"><i></i><span>Ativo</span></div>
+          <div class="status {{ status[client.value.status] }}">
+            <i></i>
+            <span>{{ client.value.status }}</span></div>
         </div>
         <div class="col">
-          <button class="btn outline full">Editar</button>
+          <button class="btn outline full"
+                  [routerLink]="['/editar-cliente', client.key]">Editar</button>
         </div>
       </li>
     </ul>
+    <div class="client-list-footer">
+      Exibindo {{ object.keys(clients).length }} clientes
+    </div>
   </div>
+  <ng-template #loading>
+    <div class="loading">
+      Carregando dados
+    </div>
+  </ng-template>
+
 </div>

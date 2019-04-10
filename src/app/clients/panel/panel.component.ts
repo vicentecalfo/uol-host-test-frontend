@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientsService } from '../clients.service';
 
 @Component({
   selector: 'app-panel',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
 
-  constructor() { }
+  object = Object;
+  clients = null;
+  status = {
+    'Aguardando ativação': 'waiting',
+    Ativo: 'active',
+    Inativo: 'inactive',
+    Desativado: 'disabled'
+  };
 
-  ngOnInit() {
+  constructor(
+    private clientsService: ClientsService
+  ) { }
+
+  async ngOnInit() {
+    this.clients = await this.clientsService.getClients();
   }
+
 
 }

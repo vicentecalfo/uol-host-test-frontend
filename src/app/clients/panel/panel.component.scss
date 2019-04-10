@@ -9,10 +9,20 @@
         padding:20px;
         grid-gap: 20px;
         grid-template-columns: 2fr repeat(3, 1fr);
+        margin-bottom:20px;
 
         .col{
             display: flex;
             align-items: center;
         }
     }
+
+    li:last-child{
+        margin-bottom:0;
+    }
+
+}
+.client-list-footer{
+    padding:20px 0;
+    border:none;
 }
