@@ -10,3 +10,4 @@ Descrição nesse link: https://github.com/uolhost/test-frontEnd
 - [x] Responsivo
 - [x] Feedback ao criar/editar cliente
 - [x] Edição de cliente
+- [x] Persistência de dados (localStorage)
